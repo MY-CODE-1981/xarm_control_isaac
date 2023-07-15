@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: xarm_control
+    relative_path: model/urdf/xarm7_camera.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/xarm7_urdf.srdf
+  CONFIG:
+    author_name: Masanori_Yoshihira
+    author_email: yoshihira-masanori183@g.ecc.u-tokyo.ac.jp
+    generated_timestamp: 1689397289

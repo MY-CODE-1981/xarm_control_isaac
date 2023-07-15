@@ -1,0 +1,1 @@
+- git: {local-name: xarm_control_isaac/realsense-ros, uri: https://github.com/IntelRealSense/realsense-ros.git, version: ros1-legacy}

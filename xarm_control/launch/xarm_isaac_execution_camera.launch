@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<launch>
+  <param name="use_sim_time" value="true" />
+
+  <arg name="debug" default="false" />
+  <arg name="pipeline" default="ompl" />
+
+  <arg name="use_gui" default="false" />
+
+  <node pkg="xarm_control" name="combined_joints_publisher" type="combined_joints_publisher_camera.py" />
+
+  <include file="$(find xarm_camera_control_moveit)/launch/planning_context.launch">
+    <arg name="load_robot_description" value="true"/>
+  </include>
+
+  <node name="joint_state_desired_publisher" pkg="topic_tools" type="relay" args="/joint_states /joint_states_desired" />
+  <node name="joint_command_publisher" pkg="topic_tools" type="relay" args="/move_group/fake_controller_joint_states /joint_command_desired" />
+  
+  <include file="$(find xarm_camera_control_moveit)/launch/move_group.launch">
+    <arg name="allow_trajectory_execution" value="true"/>
+    <arg name="moveit_controller_manager" value="fake"/>
+    <arg name="info" value="true"/>
+    <arg name="debug" value="$(arg debug)"/>
+    <arg name="pipeline" value="$(arg pipeline)"  />
+  </include>
+
+  <!-- Rviz -->
+  <arg name="use_rviz" default="true" />
+  <include file="$(find xarm_camera_control_moveit)/launch/moveit_rviz.launch" if="$(arg use_rviz)">
+  <arg name="rviz_config" value="$(find xarm_camera_control_moveit)/launch/moveit.rviz"/>
+  </include>
+
+</launch>

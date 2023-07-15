@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<launch>
+    <!-- robot -->
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find xarm_control)/model/urdf/xarm7_camera.urdf.xacro'" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+    <!-- map -->
+    <param name="robot_description_map" command="$(find xacro)/xacro --inorder '$(find xarm_control)/model/urdf/map_frame.urdf.xacro'" />
+    <node name="robot_state_publisher_map" pkg="robot_state_publisher" type="robot_state_publisher" >
+        <remap from="robot_description" to="robot_description_map" />
+    </node>
+
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+
+    <!-- rviz -->
+    <arg name="gui" default="True" />
+    <param name="use_gui" value="$(arg gui)" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find xarm_control)/rviz/urdf.rviz" required="true" />
+</launch>

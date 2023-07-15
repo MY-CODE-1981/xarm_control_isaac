@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="map_frame" >
+<link name="map"/>
+<joint name="map_joint" type="fixed">
+  <parent link="map"/>
+  <child link="link_base"/>
+  <origin rpy="0 0 0" xyz="0 0 0"/>
+</joint>
+<link name="link_base"/>
+</robot>
+
