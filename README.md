@@ -3,11 +3,14 @@
 xarmでnerfをするためのテストベンチをisaac-sim上で作成すること
 
 ## 実行環境
+```
 　ubuntu 18.04
 　ros-melodic
 　python 2.7/3.6
+```
 
 ## pythonモジュール
+```
     astropy
     json
     geometry_msgs
@@ -27,8 +30,10 @@ xarmでnerfをするためのテストベンチをisaac-sim上で作成するこ
     time
     transforms3d
     tf
+```
 
 ## ビルド
+```
 　$ source /opt/ros/melodic/setup.bash
 　$ mkdir -p omniverse_ros/src
 　$ cd omniverse_ros/src
@@ -37,6 +42,7 @@ xarmでnerfをするためのテストベンチをisaac-sim上で作成するこ
 　$ cd ..
 　$ catkin_make -j4 --cmake-args -DCMAKE_BUILD_TYPE=Release -DPYTHON_EXECUTABLE='/usr/bin/python3.6'
 　$ source devel/setup.bash
+```
 
 ## 使い方
 ```
