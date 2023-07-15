@@ -1,11 +1,13 @@
 # xarm_control_isaac
+## 目的
+xarmでnerfをするためのテストベンチをisaac-sim上で作成すること
 
-実行環境
+## 実行環境
 　ubuntu 18.04
 　ros-melodic
 　python 2.7/3.6
 
-pythonで利用しているモジュール
+## pythonモジュール
     astropy
     json
     geometry_msgs
@@ -26,7 +28,7 @@ pythonで利用しているモジュール
     transforms3d
     tf
 
-パッケージをビルド
+## ビルド
 　$ source /opt/ros/melodic/setup.bash
 　$ mkdir -p omniverse_ros/src
 　$ cd omniverse_ros/src
@@ -36,6 +38,8 @@ pythonで利用しているモジュール
 　$ catkin_make -j4 --cmake-args -DCMAKE_BUILD_TYPE=Release -DPYTHON_EXECUTABLE='/usr/bin/python3.6'
 　$ source devel/setup.bash
 
+## 使い方
+```
 ロボットモデルをrvizで表示
 　$ roslaunch xarm_control test_robot_model.launch
 
@@ -87,4 +91,4 @@ instant-ngpによるtransform.jsonと自作したsample.jsonを比較
 instant-ngpのあるフォルダに移動して
 　$ ./instant-ngp --mode nerf --scene /home/initial/workspace/omniverse_ros2/src/xarm_control_isaac/xarm_control/data/
 　$ ./instant-ngp --mode nerf --scene /home/initial/workspace/omniverse_ros2/src/xarm_control_isaac/xarm_control/data/image2colmap
-
+```
