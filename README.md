@@ -98,3 +98,6 @@ instant-ngpのあるフォルダに移動して
 　$ ./instant-ngp --mode nerf --scene /home/initial/workspace/omniverse_ros2/src/xarm_control_isaac/xarm_control/data/
 　$ ./instant-ngp --mode nerf --scene /home/initial/workspace/omniverse_ros2/src/xarm_control_isaac/xarm_control/data/image2colmap
 ```
+
+## ライセンス
+BSD ライセンス
