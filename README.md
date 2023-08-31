@@ -39,8 +39,10 @@ xarmでnerfをするためのテストベンチをisaac-sim上で作成するこ
 　$ mkdir -p omniverse_ros/src
 　$ cd omniverse_ros/src
 　$ git clone git@github.com:MY-CODE-1981/xarm_control_isaac.git
+  $ cd xarm_control
 　$ pip3 install -r requirements.txt
 　$ pip install astropy transforms3d
+  $ cd ../..
 　$ wstool init . ./xarm_control_isaac/xarm_control/.rosinstall
 　$ cd ..
 　$ catkin_make -j4 --cmake-args -DCMAKE_BUILD_TYPE=Release -DPYTHON_EXECUTABLE='/usr/bin/python3.6'
